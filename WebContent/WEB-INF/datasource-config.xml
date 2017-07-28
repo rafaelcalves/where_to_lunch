@@ -11,7 +11,7 @@
     <!-- Data Source -->
     <bean id="dataSourceDefault" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-        <property name="url" value="jdbc:hsqldb:file:C:/training/trainingdb;hsqldb.lock_file=false;shutdown=true"/>
+        <property name="url" value="jdbc:hsqldb:file:C:/wtl/wtldb;hsqldb.lock_file=false;shutdown=true"/>
         <property name="username" value="SA"/>
         <property name="password" value=""/>
         <property name="initialSize" value="1"/>

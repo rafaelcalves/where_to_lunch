@@ -10,22 +10,12 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-    <!--&lt;!&ndash; Beans de service &ndash;&gt;-->
+    <bean name="hibernateEstablishmentDao" class="com.sap.wtl.daos.impls.HibernateEstablishmentDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
-    <!-- BOOKING REST BEANS-->
+    <bean name="defaultEstablishmentService" class="com.sap.wtl.services.impls.DefaultEstablishmentService">
+    </bean>
 
-
-    <!-- BOOKING REST BEANS-->
-
-
-    <!-- TRAINING  BEANS-->
-    <!-- Beans de service -->
-
-
-    <!-- Beans de dao -->
-
-    <!-- Permite diversas implementações, só muda o name -->
-
-    <!-- TRAINING  BEANS-->
 
 </beans>
