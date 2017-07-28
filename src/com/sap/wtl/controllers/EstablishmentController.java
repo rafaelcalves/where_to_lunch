@@ -40,7 +40,6 @@ public class EstablishmentController {
     public String register(@Valid Establishment establishment, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute("establishment", establishment);
             return "establishment/register";
         }
         defaultEstablishmentService.createUpdateEstablishment(establishment);
