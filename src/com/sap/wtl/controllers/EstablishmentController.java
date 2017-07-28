@@ -30,6 +30,12 @@ public class EstablishmentController {
         return "establishment/list";
     }
 
+    @RequestMapping(value = "/edit/{id}")
+    public String edit(@PathVariable("id") int editId, Model model) {
+        model.addAttribute("establishment", defaultEstablishmentService.getEstablishment(editId));
+        return "establishment/register";
+    }
+
     @RequestMapping(value = "/add")
     public String add(Model model) {
         model.addAttribute("establishment", new Establishment());
@@ -37,7 +43,7 @@ public class EstablishmentController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@Valid Establishment establishment, BindingResult bindingResult, Model model) {
+        public String register(@Valid Establishment establishment, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("establishment", establishment);
@@ -52,12 +58,6 @@ public class EstablishmentController {
 
         defaultEstablishmentService.deleteEstablishment(removeId);
         return "redirect:/establishment/";
-    }
-
-    @RequestMapping(value = "/edit/{id}")
-    public String edit(@PathVariable("id") int editId, Model model) {
-        model.addAttribute("establishment", defaultEstablishmentService.getEstablishment(editId));
-        return "establishment/register";
     }
 
 }

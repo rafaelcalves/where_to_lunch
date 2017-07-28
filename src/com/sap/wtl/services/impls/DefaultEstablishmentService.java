@@ -3,10 +3,12 @@ package com.sap.wtl.services.impls;
 import com.sap.wtl.daos.EstablishmentDao;
 import com.sap.wtl.models.Establishment;
 import com.sap.wtl.services.EstablishmentService;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Transactional
 public class DefaultEstablishmentService implements EstablishmentService {
     @Resource
     private EstablishmentDao hibernateEstablishmentDao;

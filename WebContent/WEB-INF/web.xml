@@ -5,7 +5,7 @@
          version="2.5">
     <display-name>training</display-name>
     <welcome-file-list>
-        <welcome-file>/establishment/list.jsp</welcome-file>
+        <welcome-file>views/establishment/</welcome-file>
     </welcome-file-list>
 
     <context-param>

@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Home</title>
   </head>
   <body>
-  $END$
+  <input type="button" value="Add" onclick="location.href='establishment/add'">
+  <input type="button" value="List" onclick="location.href='establishment/'">
   </body>
 </html>

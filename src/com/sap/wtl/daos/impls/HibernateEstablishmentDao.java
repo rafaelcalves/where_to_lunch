@@ -9,25 +9,21 @@ import java.util.List;
 
 public class HibernateEstablishmentDao extends HibernateDaoSupport implements EstablishmentDao {
 
-    @Transactional
     @Override
     public void saveOrUpdate(Establishment establishment) {
         getHibernateTemplate().saveOrUpdate(establishment);
     }
 
-    @Transactional
     @Override
     public void save(Establishment establishment) {
         getHibernateTemplate().save(establishment);
     }
 
-    @Transactional
     @Override
     public void delete(int id) {
         getHibernateTemplate().delete(getEstablishment(id));
     }
 
-    @Transactional
     @Override
     public void update(Establishment establishment) {
         getHibernateTemplate().update(establishment);

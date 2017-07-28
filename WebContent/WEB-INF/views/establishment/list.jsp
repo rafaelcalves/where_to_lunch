@@ -6,35 +6,38 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert title here</title>
 </head>
 <body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <table border="1">
-        <tr>
-            <th>Name</th>
-            <th>Adress</th>
-            <th>Average Price</th>
-            <th>Alelo</th>
-            <th>Image</th>
-        </tr>
-        <c:forEach var="establishment" items="${establishments}">
+    <div class="containerTable">
+        <div class="row tableHeader">
+            <div class="col-md-2 col-xs-2 headerCol">Name</div>
+            <div class="col-md-2 col-xs-2 headerCol">Adress</div>
+            <div class="col-md-2 col-xs-2 headerCol">Average Price</div>
+            <div class="col-md-2 col-xs-2 headerCol">Alelo</div>
+            <div class="col-md-2 col-xs-2 headerCol">Image</div>
+            <div class="col-md-2 col-xs-2 headerCol">Controls</div>
+        </div>
+        <div class="row tableBody">
 
-            <tr id = "${establishment.id}">
-                <td>${establishment.name}</td>
-                <td>${establishment.address}</td>
-                <td>${establishment.averagePrice}</td>
-                <td>${establishment.aleloAccepted}</td>
-                <td>${establishment.image}</td>
-                <td><a href="edit/${establishment.id}">Edit</a></td>
-                <td><a href="remove/${establishment.id}">Remove</a></td>
-                <%--<td><button class="removeButton" value = "${establishment.id}">Remove</button></td>--%>
-                <%--<td><button class="editButton" value = "${establishment.id}">Remove</button></td>--%>
-            </tr>
+        <c:forEach var="establishment" items="${establishments}">
+            <div class="row tableLine" id="${establishment.id}">
+                <div class="col-md-2 col-xs-2 bodyCol">${establishment.name}</div>
+                <div class="col-md-2 col-xs-2 bodyCol">${establishment.address}</div>
+                <div class="col-md-2 col-xs-2 bodyCol">${establishment.averagePrice}</div>
+                <div class="col-md-2 col-xs-2 bodyCol">${establishment.aleloAccepted}</div>
+                <div class="col-md-2 col-xs-2 bodyCol">${establishment.image}</div>
+                <div class="col-md-1 col-xs-1 bodyCol"><input type="button" value="Edit" onclick="location.href='edit/${establishment.id}'"></div>
+                <div class="col-md-1 col-xs-1 bodyCol"><input type="button" value="Remove" onclick="location.href='remove/${establishment.id}'"></div>
+            </div>
         </c:forEach>
-    </table>
+
+        </div>
+    </div>
     <br>
     <input type="button" value="Add" onclick="location.href='add'">
 

@@ -15,7 +15,7 @@
             Image(URL): <form:input path="image" value="${establishment.image}"/>
             <form:errors path="image"/><br/>
             <form:button>Save</form:button>
-            <form:input path="id" value="${establishment.id}" style="visibility:hidden; height:0; width:0; position:absolute"/>
+            <%--<form:input path="id" value="${establishment.id}" style="visibility:hidden; height:0; width:0; position:absolute"/>--%>
         </form:form>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
