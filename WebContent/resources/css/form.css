@@ -1,0 +1,43 @@
+#establishment input {
+    margin: 5px;
+}
+
+#establishment input[type = text] {
+    width: 100%;
+}
+
+input#aleloAccepted1, input#id {
+    visibility: hidden;
+    position: absolute;
+}
+
+img.aleloLogo {
+    -webkit-transition: all 300ms ease-in;
+    -moz-transition: all 300ms ease-in;
+    -ms-transition: all 300ms ease-in;
+    -o-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;
+    filter: grayscale(100%);
+    width: 30px;
+    cursor: pointer;
+}
+
+img.aleloLogo.checked {
+    -webkit-transition: all 300ms ease-in;
+    -moz-transition: all 300ms ease-in;
+    -ms-transition: all 300ms ease-in;
+    -o-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;
+    filter: grayscale(0%);
+    width: 35px
+}
+
+img.aleloLogo:hover {
+    width: 40px;
+}
+
+span {
+    color: #b90303;
+    font-weight: 600;
+}
+

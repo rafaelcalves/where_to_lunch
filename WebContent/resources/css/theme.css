@@ -1,0 +1,57 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #afcea3;
+    font-weight: 200;
+    letter-spacing: -0.4px;
+}
+
+:focus{
+    outline: 0;
+}
+
+.title {
+    padding-top:5px;
+    font-weight: 800;
+    font-size: 38px;
+    letter-spacing: -4.8px;
+    text-align: center;
+}
+
+hr{
+    border-top: 1px solid #6f6d6d;
+}
+
+button {
+    margin: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #92b393;
+    border: 2px solid #8aad8a;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    -ms-transition: all 100ms ease-in;
+    -o-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+}
+
+button:hover {
+    background-color: #a3caa4;
+    border: 2px solid #97bd97;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    -ms-transition: all 100ms ease-in;
+    -o-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    font-size: 16px;
+}
+
+button:active {
+    background-color: #89a58a;
+    border: 2px solid #98bf98;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    -ms-transition: all 100ms ease-in;
+    -o-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    font-size: 14px;
+}
