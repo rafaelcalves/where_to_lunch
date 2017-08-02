@@ -55,3 +55,24 @@ button:active {
     transition: all 100ms ease-in;
     font-size: 14px;
 }
+
+.tableBody::-webkit-scrollbar-track {
+    background-color: #afcea3;
+}
+
+.tableBody::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+.tableBody::-webkit-scrollbar-thumb {
+    background-color: rgba(64, 136, 56, 0.48);
+    background-image: -webkit-linear-gradient(45deg,
+                        rgba(255, 255, 255, .2) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(255, 255, 255, .2) 50%,
+                        rgba(255, 255, 255, .2) 75%,
+                        transparent 75%,
+                        transparent)
+}

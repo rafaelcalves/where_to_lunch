@@ -19,18 +19,20 @@
         <hr/>
         <div class="col-md-2 col-xs-0"></div>
         <form:form modelAttribute="establishment" cssClass="col-md-8 col-xs-12" servletRelativeAction="/establishment/register" method="POST">
-            Name: <br/><form:input path="name" value="${establishment.name}"/>
-            <form:errors path="name"/><br/>
-            Adress (Street, Number, City, State): <br/><form:input path="address" value="${establishment.address}"/>
-            <form:errors path="address"/><br/>
-            Average price: <br/><form:input path="averagePrice" type="number" step="0.01" value="${establishment.averagePrice}"/>
-            <form:errors path="averagePrice"/>
+            Name: <form:errors path="name"/><br/>
+            <form:input path="name" value="${establishment.name}"/><br/>
+            Adress (Street, Number, City, State): <form:errors path="address"/><br/>
+            <form:input path="address" value="${establishment.address}"/><br/>
+            Average price: <form:errors path="averagePrice"/><br/>
+            <form:input path="averagePrice" type="number" step="0.01" value="${establishment.averagePrice}"/>
             <form:checkbox path="aleloAccepted" value="${establishment.aleloAccepted}"/>
             <img class="aleloLogo <c:if test="${establishment.aleloAccepted}">checked</c:if>" src="/resources/img/alelo.png"><br/>
-            Image(URL): <br/><form:input path="image" value="${establishment.image}"/>
-            <form:errors path="image"/><br/>
-            <form:button>Save</form:button>
-            <button id="cancel" type="button" value="cancel">Cancel</button>
+            Image(URL): <form:errors path="image"/><br/>
+            <form:input path="image" value="${establishment.image}"/><br/>
+            <div class="controls">
+                <form:button id="submit">Save</form:button>
+                <button id="cancel" type="button" value="cancel">Cancel</button>
+            </div>
             <form:input path="id" value="${establishment.id}"/>
         </form:form>
         <div class="col-md-2 col-xs-0"></div>

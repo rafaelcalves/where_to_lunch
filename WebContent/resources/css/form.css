@@ -41,3 +41,15 @@ span {
     font-weight: 600;
 }
 
+button#cancel {
+    position: absolute;
+    left: 60px;
+}
+
+button#submit {
+    float: left;
+}
+
+.controls {
+    position: relative;
+}
