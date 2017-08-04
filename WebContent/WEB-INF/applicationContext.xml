@@ -17,5 +17,10 @@
     <bean name="defaultEstablishmentService" class="com.sap.wtl.services.impls.DefaultEstablishmentService">
     </bean>
 
+    <bean name="hibernateUserDao" class="com.sap.wtl.daos.impls.HibernateUserDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
+    <bean name="defaultUserService" class="com.sap.wtl.services.impls.DefaultUserService">
+    </bean>
 </beans>
