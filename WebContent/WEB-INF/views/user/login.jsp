@@ -1,7 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="h" uri=""%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -17,10 +16,32 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" type="text/css">
         <link rel="stylesheet" href="/resources/css/form.css">
         <link rel="stylesheet" href="/resources/css/theme.css">
-        <%@include file="/resources/tag/template.tag"%>
     </head>
 
     <body>
+
+        <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img id="img" style="margin-right: 10px; padding: 0; height: 20px" src="img/nf_logo.png" alt="Responsive">
+                    </a>
+                </div>
+
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" id="clearResults"><i class="glyphicon glyphicon-erase"></i>&nbsp;Clear Result Layers</a></li>
+                        <li><a href="upload/layers.wgs" target="_blank"><i class="glyphicon glyphicon-cloud-download"></i>&nbsp;Open Result Layers</a></li>
+                        <li><a href="#" id="confirm"><i class="glyphicon glyphicon-tag"></i>&nbsp;Add New Layer</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
 
         <div class="container">
 
