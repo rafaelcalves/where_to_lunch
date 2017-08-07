@@ -17,5 +17,23 @@
     <bean name="defaultEstablishmentService" class="com.sap.wtl.services.impls.DefaultEstablishmentService">
     </bean>
 
+    <bean name="hibernateUserDao" class="com.sap.wtl.daos.impls.HibernateUserDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean name="defaultUserService" class="com.sap.wtl.services.impls.DefaultUserService">
+    </bean>
+
+    <!--Validator beans-->
+
+    <bean name="userValidator" class="com.sap.wtl.validator.UserValidator"/>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>validation</value>
+            </list>
+        </property>
+    </bean>
 
 </beans>

@@ -14,7 +14,9 @@
     <title>Insert title here</title>
   </head>
   <body>
-    <input type="button" value="Add" onclick="location.href='establishment/add'">
-    <input type="button" value="List" onclick="location.href='establishment/'">
+    <input type="button" value="Add Establishment" onclick="location.href='establishment/add'">
+    <input type="button" value="List Establishments" onclick="location.href='establishment/'">
+    <input type="button" value="Sign Un" onclick="location.href='user/add'">
+    <input type="button" value="Login" onclick="location.href='user/login'">
   </body>
 </html>
