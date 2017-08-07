@@ -1,0 +1,21 @@
+span.password[strength=weak]:after {
+    content: "Weak";
+    color:  yellow;
+}
+
+span.password[strength=good]:after {
+    content: "Good";
+    color: blue;
+}
+
+span.password[strength=strong]:after {
+    content: "Strong";
+    color: green;
+}
+
+span.password[strength=mismatch]:after {
+    content: '"Password" and "Confirm Password" are mismatching';
+}
+span.password[strength=short]:after {
+    content: "Password is too short (minimum size 6 digits)";
+}

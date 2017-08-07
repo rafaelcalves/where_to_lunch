@@ -1,8 +1,8 @@
-#establishment input {
+input {
     margin: 5px;
 }
 
-#establishment input[type = text] {
+input[type = text] {
     width: 100%;
 }
 
@@ -52,4 +52,16 @@ button#submit {
 
 .controls {
     position: relative;
+}
+
+button:disabled {
+    background-color: #b7bdb7;
+    border: 2px solid #b4b4b4;
+    color: #8c8888;
+}
+
+button:disabled:hover {
+    font-size: 15px;
+    background-color: #b7bdb7;
+    border: 2px solid #b4b4b4;
 }
