@@ -3,6 +3,7 @@ body {
     background-color: #afcea3;
     font-weight: 200;
     letter-spacing: -0.4px;
+    padding-top: 40px;
 }
 
 :focus{
@@ -75,4 +76,46 @@ button:active {
                         rgba(255, 255, 255, .2) 75%,
                         transparent 75%,
                         transparent)
+}
+
+.navLogo img{
+    margin: -9px;
+    height: 40px;
+}
+
+.navbar {
+    background-image:none;
+    background-color: #7c8474;
+    border: none;
+}
+
+.navbar-inverse .navbar-collapse {
+    border: none;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    text-shadow: none;
+}
+
+.navbar-nav>li>a {
+    text-shadow: none;
+    font-weight: 700;
+    color: rgba(181, 230, 29, 0.5) !important;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: rgba(181, 230, 29, 0.5);
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: rgba(51, 51, 51, 0.51);
+    border: 1px solid rgba(181, 230, 29, 0.5) !important;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: rgba(181, 230, 29, 0.5);
 }

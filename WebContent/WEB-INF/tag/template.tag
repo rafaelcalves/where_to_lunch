@@ -1,10 +1,11 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="t" tagdir="/WEB-INF/tag" %>
+<%@tag description="Overall Page template" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@attribute name="header" fragment="true" %>
+<%@attribute name="footer" fragment="true" %>
+<%@attribute name="title" fragment="true" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<t:
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -15,12 +16,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" type="text/css">
-        <link rel="stylesheet" href="/resources/css/form.css">
-        <link rel="stylesheet" href="/resources/css/theme.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/theme.css"/>">
+        <title id="title">
+            <jsp:invoke fragment="title"/>
+        </title>
     </head>
-
     <body>
-
+        <div id="pageheader">
+            <jsp:invoke fragment="header"/>
+        </div>
         <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
@@ -42,27 +46,15 @@
                 </div><!-- /.nav-collapse -->
             </div><!-- /.container -->
         </nav><!-- /.navbar -->
-
-        <div class="container">
-
-            <form method="POST" action="/user/login" class="form-signin" modelAttribute="user">
-                <h2 class="form-heading">Log in</h2>
-
-                <div class="${error != null ? 'has-error' : ''}">
-                    <span>${message}</span>
-                    <input name="email" type="text" placeholder="Email"
-                           autofocus="true"/>
-                    <input name="password" type="password" placeholder="Password"/>
-                    <span>${error}</span>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
-                    <button type="submit">Log In</button>
-                </div>
-
-            </form>
-
+        <div id="body">
+            <div id="main-container" class="container">
+                <jsp:doBody/>
+            </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <div id="pagefooter">
+            <jsp:invoke fragment="footer"/>
+        </div>
     </body>
 </html>
