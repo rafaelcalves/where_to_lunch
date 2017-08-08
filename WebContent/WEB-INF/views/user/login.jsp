@@ -1,7 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="h" uri=""%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -17,7 +16,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" type="text/css">
         <link rel="stylesheet" href="/resources/css/form.css">
         <link rel="stylesheet" href="/resources/css/theme.css">
-        <%@include file="/resources/tag/template.tag"%>
     </head>
 
     <body>
