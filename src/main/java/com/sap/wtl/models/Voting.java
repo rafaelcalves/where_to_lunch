@@ -14,12 +14,15 @@ public class Voting {
     @Column(name = "ID")
     private int id;
 
+    @Column(name = "description")
+    private String description;
+
     @ManyToOne
     private Establishment chosenEstablishment;
 
-    @Column(name = "date")
+    @Column(name = "ending_date")
     @DateTimeFormat
-    private LocalDateTime date;
+    private LocalDateTime endingDate;
 
     public int getId() {
         return id;
@@ -27,6 +30,14 @@ public class Voting {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Establishment getChosenEstablishment() {
@@ -37,11 +48,11 @@ public class Voting {
         this.chosenEstablishment = chosenEstablishment;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getEndingDate() {
+        return endingDate;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setEndingDate(LocalDateTime endingDate) {
+        this.endingDate = endingDate;
     }
 }

@@ -25,6 +25,9 @@ public class Vote {
     @DateTimeFormat
     private LocalDateTime lastEdit;
 
+    @Column(name = "edited")
+    private boolean edited;
+
     public int getId() {
         return id;
     }
@@ -63,5 +66,13 @@ public class Vote {
 
     public void setLastEdit(LocalDateTime lastEdit) {
         this.lastEdit = lastEdit;
+    }
+
+    public boolean isEdited() {
+        return edited;
+    }
+
+    public void setEdited(boolean edited) {
+        this.edited = edited;
     }
 }

@@ -16,12 +16,10 @@ public class HibernateUserDao extends HibernateDaoSupport implements UserDao {
     @Override
     public User findByEmail(String email) {
         String query = "from com.sap.wtl.models.User where email like :pEmail";
-        List<User> retQuery = (List<User>) getHibernateTemplate().findByNamedParam(query,"pEmail",email);
-        User retUser = null;
-
-        if (retQuery.size() > 0){
-            retUser = retQuery.get(0);
+        try {
+            return (User) getHibernateTemplate().findByNamedParam(query, "pEmail", email).get(0);
+        } catch (Exception e){
+            return null;
         }
-        return retUser;
     }
 }

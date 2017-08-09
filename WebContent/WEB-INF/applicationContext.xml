@@ -10,6 +10,7 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
+    <!--Establishment beans-->
     <bean name="hibernateEstablishmentDao" class="com.sap.wtl.daos.impls.HibernateEstablishmentDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -17,11 +18,28 @@
     <bean name="defaultEstablishmentService" class="com.sap.wtl.services.impls.DefaultEstablishmentService">
     </bean>
 
+    <!--User beans-->
     <bean name="hibernateUserDao" class="com.sap.wtl.daos.impls.HibernateUserDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
     <bean name="defaultUserService" class="com.sap.wtl.services.impls.DefaultUserService">
+    </bean>
+
+    <!--Vote beans-->
+    <bean name="hibernateVoteDao" class="com.sap.wtl.daos.impls.HibernateVoteDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean name="defaultVoteService" class="com.sap.wtl.services.impls.DefaultVoteService">
+    </bean>
+
+    <!--Voting beans-->
+    <bean name="hibernateVotingDao" class="com.sap.wtl.daos.impls.HibernateVotingDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean name="defaultVotingService" class="com.sap.wtl.services.impls.DefaultVotingService">
     </bean>
 
     <!--Validator beans-->
