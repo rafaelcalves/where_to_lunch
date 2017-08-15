@@ -3,16 +3,18 @@ package com.sap.wtl.services.impls;
 import com.sap.wtl.daos.VoteDao;
 import com.sap.wtl.models.Vote;
 import com.sap.wtl.services.VoteService;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
 
+@Transactional
 public class DefaultVoteService implements VoteService {
     @Resource
     private VoteDao hibernateVoteDao;
 
     @Override
-    public void create(Vote vote) {
+    public void createEdit(Vote vote) {
         vote.setLastEdit(timeNow());
         hibernateVoteDao.saveOrUpdate(vote);
     }
@@ -25,8 +27,18 @@ public class DefaultVoteService implements VoteService {
     }
 
     @Override
-    public void delete(int voteId) {
-        hibernateVoteDao.delete(voteId);
+    public void delete(Vote vote) {
+        hibernateVoteDao.delete(vote);
+    }
+
+    @Override
+    public Vote findByUserId(int pollId, int userId) {
+        return hibernateVoteDao.findByUserId(pollId,userId);
+    }
+
+    @Override
+    public Vote getVote(int voteId) {
+        return hibernateVoteDao.getVote(voteId);
     }
 
     public LocalDateTime timeNow(){

@@ -34,17 +34,19 @@
     <bean name="defaultVoteService" class="com.sap.wtl.services.impls.DefaultVoteService">
     </bean>
 
-    <!--Voting beans-->
-    <bean name="hibernateVotingDao" class="com.sap.wtl.daos.impls.HibernateVotingDao">
+    <!--Poll beans-->
+    <bean name="hibernatePollDao" class="com.sap.wtl.daos.impls.HibernatePollDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean name="defaultVotingService" class="com.sap.wtl.services.impls.DefaultVotingService">
+    <bean name="defaultPollService" class="com.sap.wtl.services.impls.DefaultPollService">
     </bean>
 
     <!--Validator beans-->
 
     <bean name="userValidator" class="com.sap.wtl.validator.UserValidator"/>
+
+    <bean name="defaultSecurityService" class="com.sap.wtl.services.impls.DefaultSecurityService"/>
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">

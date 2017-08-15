@@ -28,4 +28,9 @@ public class DefaultUserService implements UserService {
     public User findByEmail(String email) {
         return hibernateUserDao.findByEmail(email);
     }
+
+    @Override
+    public User findById(int userId) {
+        return hibernateUserDao.findById(userId);
+    }
 }

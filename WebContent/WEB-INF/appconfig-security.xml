@@ -10,9 +10,10 @@
     <http auto-config="true">
         <intercept-url pattern="/user/*" access="permitAll" />
         <intercept-url pattern="/establishment/*" access="isAuthenticated()" />
+        <intercept-url pattern="/poll/*" access="isAuthenticated()" />
         <form-login login-page="/user/login"
                     login-processing-url="/user/login"
-                    default-target-url="/establishment/"
+                    default-target-url="/"
                     authentication-failure-url="/user/login?error=true"
                     username-parameter="email"
                     password-parameter="password"/>

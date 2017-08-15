@@ -7,7 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Establishment List</title>
+        <title>Poll List</title>
     </head>
     <body>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,8 +17,7 @@
         <link rel="stylesheet" href="/resources/css/list.css">
         <link rel="stylesheet" href="/resources/css/theme.css">
 
-        <img class="addButton" src="/resources/img/add.png" onclick="location.href='add'">
-        <div class="title">Establishment List</div>
+        <div class="title">Poll List</div>
         <hr/>
         <div class="col-md-2 col-xs-0"></div>
         <div class="col-md-8 col-xs-8 containerTable establishments">
@@ -29,7 +28,7 @@
                 <div class="row tableLine" id="${establishment.id}">
                     <div class="info">
                         <div class="col-md-7 col-xs-7 text">
-                            <div class="name">${establishment.name}</div>
+                            <div class="name">${establishment.name} - Votes: ${establishment.countOfVotes}</div>
                             <br>
                             <div class="address">${establishment.address}</div>
                             <br>
@@ -61,8 +60,8 @@
                         </iframe>
                     </div>
                     <div class="establishmentControls">
-                        <img class="editButton downButton" src="/resources/img/edit.png" onclick="location.href='edit/${establishment.id}'">
-                        <img class="removeButton upButton" src="/resources/img/remove.png" onclick="location.href='remove/${establishment.id}'">
+                        <c:if test="${poll.chosenEstablishment.id eq establishment.id}"><img class="flag upButton" src="/resources/img/flag.png"></c:if>
+                        <img class="usersButton downButton" src="/resources/img/users.png" onclick="location.href='/poll/votedUsers/${poll.id}/${establishment.id}'">
                     </div>
                 </div>
             </c:forEach>

@@ -47,8 +47,4 @@ $(function(){
     $('input[type=password]').keyup(function(){
         checkStrength($('#password').val());
     });
-
-    $("#cancel").click(function() {
-        window.location.href = "/";
-    });
 });

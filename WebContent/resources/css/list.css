@@ -29,11 +29,11 @@
     margin-top: 20px;
 }
 
-img.editButton, img.removeButton, img.addButton {
+img.downButton, img.upButton, img.addButton {
     cursor: pointer;
 }
 
-img.editButton, img.removeButton, img.addButton, img.aleloLogo{
+img.downButton, img.upButton, img.addButton, img.aleloLogo{
     width: 30px;
 }
 
@@ -82,22 +82,22 @@ img.editButton, img.removeButton, img.addButton, img.aleloLogo{
     right: 5px;
 }
 
-img.editButton {
+img.downButton {
     position: absolute;
     top: 77px;
     right: 0px;
 }
 
-img.removeButton {
+img.upButton {
     position: absolute;
     right: 0px;
 }
 
-img.editButton:hover, img.removeButton:hover, img.addButton:hover {
+img.downButton:hover, img.upButton:hover, img.addButton:hover {
     width: 31px;
 }
 
-img.editButton:active, img.removeButton:active, img.addButton:active {
+img.downButton:active, img.upButton:active, img.addButton:active {
     width: 29px;
 }
 
@@ -108,4 +108,8 @@ img.editButton:active, img.removeButton:active, img.addButton:active {
     .addButton {
         top: 15px;
     }
+}
+
+.tableLine.chosen{
+    background-color: lightgreen;
 }

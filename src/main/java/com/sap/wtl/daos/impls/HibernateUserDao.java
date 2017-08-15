@@ -22,4 +22,10 @@ public class HibernateUserDao extends HibernateDaoSupport implements UserDao {
             return null;
         }
     }
+
+    @Override
+    public User findById(int userId) {
+        String queryString = "FROM com.sap.wtl.models.User WHERE id = ?";
+        return (User) getHibernateTemplate().find(queryString,userId);
+    }
 }

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
   Created by IntelliJ IDEA.
   User: I863256
@@ -16,7 +17,18 @@
   <body>
     <input type="button" value="Add Establishment" onclick="location.href='establishment/add'">
     <input type="button" value="List Establishments" onclick="location.href='establishment/'">
-    <input type="button" value="Sign Un" onclick="location.href='user/add'">
-    <input type="button" value="Login" onclick="location.href='user/login'">
+    <br>
+    <br>
+    <input type="button" value="Add Poll" onclick="location.href='poll/add'">
+    <input type="button" value="Poll History" onclick="location.href='poll/history'">
+    <br>
+    <br>
+    <c:if test="${empty userName}">
+      <input type="button" value="Sign Up" onclick="location.href='user/add'">
+      <input type="button" value="Login" onclick="location.href='user/login'">
+    </c:if>
+    <c:if test="${not empty userName}">
+      ${userName}
+    </c:if>
   </body>
 </html>

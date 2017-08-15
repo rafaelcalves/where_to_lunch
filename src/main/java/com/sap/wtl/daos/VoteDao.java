@@ -6,7 +6,9 @@ import com.sap.wtl.models.Vote;
 public interface VoteDao {
     void saveOrUpdate(Vote vote);
 
-    void delete(int id);
+    void delete(Vote vote);
 
     Vote getVote(int id);
+
+    Vote findByUserId(int pollId, int userId);
 }

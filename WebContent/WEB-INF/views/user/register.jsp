@@ -34,7 +34,7 @@
     <form:input path="confirmPassword" type="password" class="password" value="${user.confirmPassword}"/><br/>
     <div class="controls">
         <form:button id="submit" disabled="true">Save</form:button>
-        <button id="cancel" type="button" value="cancel">Cancel</button>
+        <button id="cancel" onclick="location.href='/'" type="button" value="cancel">Cancel</button>
     </div>
     <form:input path="id" value="${user.id}"/>
 </form:form>

@@ -1,6 +1,7 @@
 package com.sap.wtl.controllers;
 
 import com.sap.wtl.models.User;
+import com.sap.wtl.services.SecurityService;
 import com.sap.wtl.services.UserService;
 import com.sap.wtl.validator.UserValidator;
 import org.springframework.security.core.Authentication;
@@ -25,6 +26,9 @@ public class UserController {
     @Resource
     private UserValidator userValidator;
 
+    @Resource
+    private SecurityService defaultSecurityService;
+
     @RequestMapping(value = "/add")
     public String add(Model model) {
         model.addAttribute("user", new User());
@@ -32,8 +36,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@ModelAttribute("user") User userForm, @Valid User user, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+    public String register(@Valid User user, BindingResult bindingResult) {
+        userValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "user/register";
@@ -44,12 +48,17 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+        String loggedInUsername = defaultSecurityService.findLoggedInUsername();
+        if(loggedInUsername != null){
+            return "redirect:/";
+        }else {
+            if (error != null)
+                model.addAttribute("error", "Your username and password is invalid.");
 
-        if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            if (logout != null)
+                model.addAttribute("message", "You have been logged out successfully.");
 
-        return "user/login";
+            return "user/login";
+        }
     }
 }

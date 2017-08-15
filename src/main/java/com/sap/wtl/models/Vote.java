@@ -14,12 +14,13 @@ public class Vote {
     private int id;
 
     @ManyToOne
-    private Voting voting;
+    private Poll poll;
 
     @ManyToOne
     private User user;
 
-    @ManyToOne Establishment establishment;
+    @ManyToOne
+    private Establishment establishment;
 
     @Column(name = "last_edit")
     @DateTimeFormat
@@ -36,12 +37,12 @@ public class Vote {
         this.id = id;
     }
 
-    public Voting getVoting() {
-        return voting;
+    public Poll getPoll() {
+        return poll;
     }
 
-    public void setVoting(Voting voting) {
-        this.voting = voting;
+    public void setPoll(Poll poll) {
+        this.poll = poll;
     }
 
     public User getUser() {

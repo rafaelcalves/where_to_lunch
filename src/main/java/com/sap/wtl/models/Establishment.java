@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Entity
@@ -31,6 +32,34 @@ public class Establishment {
 
     @Column(name = "image")
     private String image;
+
+    @OneToMany(
+            mappedBy = "establishment",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Vote> vote;
+
+    public Establishment(int id,String name, String address, double averagePrice, boolean aleloAccepted, String image, List<Vote> vote) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.averagePrice = averagePrice;
+        this.aleloAccepted = aleloAccepted;
+        this.image = image;
+        this.vote = vote;
+    }
+
+    public Establishment() {
+    }
+
+    public List<Vote> getVote() {
+        return vote;
+    }
+
+    public void setVote(List<Vote> vote) {
+        this.vote = vote;
+    }
 
     public int getId() {
         return id;

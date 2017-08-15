@@ -31,7 +31,7 @@
             <form:input path="image" value="${establishment.image}"/><br/>
             <div class="controls">
                 <form:button id="submit">Save</form:button>
-                <button id="cancel" type="button" value="cancel">Cancel</button>
+                <button id="cancel" onclick="location.href='/'" type="button" value="cancel">Cancel</button>
             </div>
             <form:input path="id" value="${establishment.id}"/>
         </form:form>

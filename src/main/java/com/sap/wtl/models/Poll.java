@@ -1,14 +1,14 @@
 package com.sap.wtl.models;
 
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "voting")
-public class Voting {
+@Table(name = "poll")
+public class Poll {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
@@ -21,7 +21,8 @@ public class Voting {
     private Establishment chosenEstablishment;
 
     @Column(name = "ending_date")
-    @DateTimeFormat
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @NotNull
     private LocalDateTime endingDate;
 
     public int getId() {

@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Voting Form</title>
+        <title>Poll Form</title>
     </head>
     <body>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -15,19 +15,19 @@
         <link rel="stylesheet" href="/resources/css/form.css">
         <link rel="stylesheet" href="/resources/css/theme.css">
 
-        <div class="title">Voting Form</div>
+        <div class="title">Poll Form</div>
         <hr/>
         <div class="col-md-2 col-xs-0"></div>
-        <form:form modelAttribute="voting" cssClass="col-md-8 col-xs-12" servletRelativeAction="/voting/add" method="POST">
+        <form:form modelAttribute="poll" cssClass="col-md-8 col-xs-12" servletRelativeAction="/poll/register" method="POST">
             Description: <form:errors path="description"/><br/>
-            <form:input path="description" value="${voting.description}"/><br/>
+            <form:input path="description" value="${poll.description}"/><br/>
             Ending date:<form:errors path="endingDate"/><br/>
-            <form:input path="endingDate" type="datetime-local" value="${voting.endingDate}"/><br/>
+            <form:input path="endingDate" type="datetime-local" value="${poll.endingDate}"/><br/>
             <div class="controls">
-                <form:button id="submit" disabled="true">Save</form:button>
-                <button id="cancel" type="button" value="cancel">Cancel</button>
+                <form:button id="submit">Save</form:button>
+                <button id="cancel" onclick="location.href='/'" type="button" value="cancel">Cancel</button>
             </div>
-            <form:input path="id" value="${voting.id}"/>
+            <form:input path="id" value="${poll.id}"/>
         </form:form>
         <div class="col-md-2 col-xs-0"></div>
 
