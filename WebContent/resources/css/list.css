@@ -4,7 +4,7 @@
 }
 
 .tableBody {
-    max-height: 83vh;
+    max-height: 71vh;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -29,11 +29,11 @@
     margin-top: 20px;
 }
 
-img.downButton, img.upButton, img.addButton {
+img.downButton, img.upButton, img.addButton, .searchDiv img {
     cursor: pointer;
 }
 
-img.downButton, img.upButton, img.addButton, img.aleloLogo{
+img.downButton, img.upButton, img.addButton, img.aleloLogo, .searchDiv img{
     width: 30px;
 }
 
@@ -45,8 +45,8 @@ img.downButton, img.upButton, img.addButton, img.aleloLogo{
 }
 
 .addButton {
-    left: 10px;
-    top: 18px;
+    left: 21vw;
+    top: 60px;
     position: absolute;
 }
 
@@ -93,23 +93,38 @@ img.upButton {
     right: 0px;
 }
 
-img.downButton:hover, img.upButton:hover, img.addButton:hover {
+img.downButton:hover, img.upButton:hover, img.addButton:hover, .searchDiv img:hover {
     width: 31px;
 }
 
-img.downButton:active, img.upButton:active, img.addButton:active {
+img.downButton:active, img.upButton:active, img.addButton:active, .searchDiv img:active {
     width: 29px;
 }
 
 @media only screen and (max-device-width: 480px) {
-    .title{
-        font-size:35px!important;
-    }
     .addButton {
-        top: 15px;
+        top: 55px;
+        left: 2vw;
     }
 }
 
-.tableLine.chosen{
-    background-color: lightgreen;
+.searchDiv {
+    margin: 5px;
+}
+
+.searchDiv input {
+    width: 180px;
+}
+
+.searchDiv img {
+    position: absolute;
+    top: 5px;
+}
+
+.searchDiv .search {
+    right: 50px;
+}
+
+.searchDiv .clear {
+    right: 20px;
 }

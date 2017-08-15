@@ -2,6 +2,7 @@ package com.sap.wtl.controllers;
 
 import com.sap.wtl.models.Establishment;
 import com.sap.wtl.services.EstablishmentService;
+import com.sap.wtl.services.SecurityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,24 +22,30 @@ import java.util.List;
 public class EstablishmentController {
 
     @Resource
+    private SecurityService defaultSecurityService;
+
+    @Resource
     private EstablishmentService defaultEstablishmentService;
 
     @RequestMapping(value = "/")
     public String list(Model model) {
         List<Establishment> establishments = defaultEstablishmentService.listEstablishments();
         model.addAttribute("establishments", establishments);
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "establishment/list";
     }
 
     @RequestMapping(value = "/edit/{id}")
     public String edit(@PathVariable("id") int editId, Model model) {
         model.addAttribute("establishment", defaultEstablishmentService.getEstablishment(editId));
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "establishment/register";
     }
 
     @RequestMapping(value = "/add")
     public String add(Model model) {
         model.addAttribute("establishment", new Establishment());
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "establishment/register";
     }
 
@@ -47,6 +54,7 @@ public class EstablishmentController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("establishment", establishment);
+            model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
             return "establishment/register";
         }
         defaultEstablishmentService.createUpdateEstablishment(establishment);

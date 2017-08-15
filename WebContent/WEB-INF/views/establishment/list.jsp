@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -9,8 +10,18 @@
         <link rel="stylesheet" href="/resources/css/list.css">
         <link rel="stylesheet" href="/resources/css/theme.css">
     </jsp:attribute>
+
     <jsp:attribute name="title">
         Establishment List
+    </jsp:attribute>
+
+    <jsp:attribute name="footer">
+        <script src="/resources/js/jquery.quicksearch.js"></script>
+        <script>
+            $(function () {
+                $(".search #search").quicksearch(".tableBody .tableLine");
+            });
+        </script>
     </jsp:attribute>
     <jsp:body>
         <img class="addButton" src="/resources/img/add.png" onclick="location.href='add'">
@@ -18,7 +29,7 @@
         <hr/>
         <div class="col-md-2 col-xs-0"></div>
         <div class="col-md-8 col-xs-8 containerTable establishments">
-            <div class="search">Search: <input id="search"></div>
+            <div class="search"><input id="search" placeholder="Search..."></div>
             <div class="row tableBody">
 
             <c:forEach var="establishment" items="${establishments}">
@@ -65,14 +76,6 @@
 
             </div>
         </div>
-        <div class="col-md-2 col-xs-0">
+        <div class="col-md-2 col-xs-0"></div>
     </jsp:body>
-    <jsp:attribute name="footer">
-        <script src="/resources/js/jquery.quicksearch.js"></script>
-        <script>
-            $(function () {
-                $(".search #search").quicksearch(".tableBody .tableLine");
-            });
-        </script>
-    </jsp:attribute>
 </t:template>

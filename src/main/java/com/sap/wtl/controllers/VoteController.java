@@ -51,7 +51,7 @@ public class VoteController {
 
         defaultVoteService.createEdit(vote);
 
-        return "redirect: /poll/history";
+        return "redirect: /poll/";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -59,6 +59,7 @@ public class VoteController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("vote", vote);
+            model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
             return "poll/list";
         }
         defaultVoteService.createEdit(vote);

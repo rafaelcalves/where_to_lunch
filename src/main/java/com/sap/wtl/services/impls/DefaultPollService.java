@@ -79,17 +79,22 @@ public class DefaultPollService implements PollService{
 
     @Override
     public List<EstablishmentView> listOrderedEstablishmentsAll(int pollId) {
-        return populateEstablishmentViewList(pollId,false);
+        return populateEstablishmentViewList(pollId,false, "");
     }
 
     @Override
     public List<EstablishmentView> listOrderedEstablishmentsVoted(int pollId) {
-        return populateEstablishmentViewList(pollId,true);
+        return populateEstablishmentViewList(pollId,true,"");
     }
 
-    public List<EstablishmentView> populateEstablishmentViewList (int pollId, boolean justVoted){
+    @Override
+    public List<EstablishmentView> listOrderedEstablishmentsFiltered(int pollId, boolean returnVoted, String searchLike) {
+        return populateEstablishmentViewList(pollId,returnVoted,searchLike);
+    }
+
+    public List<EstablishmentView> populateEstablishmentViewList (int pollId, boolean justVoted,String filter){
         List<EstablishmentView> establishmentsViewList = new ArrayList<EstablishmentView>();
-        List orderedIds = hibernatePollDao.listOrderedEstablishmentIds(pollId,justVoted);
+        List orderedIds = hibernatePollDao.listOrderedEstablishmentIds(pollId,justVoted, filter);
         for (int i = 0; i < orderedIds.size(); i++){
             Establishment establishment = defaultEstablishmentService.getEstablishment(Integer.parseInt(((Object[])orderedIds.get(i))[0].toString()));
             int countOfVotes = Integer.parseInt(((Object[])orderedIds.get(i))[1].toString());

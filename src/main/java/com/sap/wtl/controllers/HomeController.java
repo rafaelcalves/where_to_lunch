@@ -18,6 +18,6 @@ public class HomeController {
     @RequestMapping(value = "/")
     public String home(Model model) {
         model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
-        return "index";
+        return "redirect: poll/";
     }
 }

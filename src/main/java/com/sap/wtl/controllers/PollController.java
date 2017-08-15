@@ -5,6 +5,7 @@ import com.sap.wtl.models.EstablishmentView;
 import com.sap.wtl.models.User;
 import com.sap.wtl.models.Poll;
 import com.sap.wtl.services.EstablishmentService;
+import com.sap.wtl.services.SecurityService;
 import com.sap.wtl.services.VoteService;
 import com.sap.wtl.services.PollService;
 import org.springframework.stereotype.Controller;
@@ -26,11 +27,15 @@ public class PollController {
     private PollService defaultPollService;
 
     @Resource
+    private SecurityService defaultSecurityService;
+
+    @Resource
     private EstablishmentService defaultEstablishmentService;
 
     @RequestMapping(value = "/add")
     public String add(Model model) {
         model.addAttribute("poll", new Poll());
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "poll/register";
     }
 
@@ -49,13 +54,24 @@ public class PollController {
         List<EstablishmentView> establishments = defaultPollService.listOrderedEstablishmentsAll(pollId);
         model.addAttribute("establishments", establishments);
         model.addAttribute("pollId",pollId);
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "poll/list";
     }
 
-    @RequestMapping(value = "/history")
+    @RequestMapping(value = "/list/{pollId}/{establishmentName}")
+    public String listEstablishments(@PathVariable("pollId") int pollId, @PathVariable("establishmentName") String establishmentName, Model model) {
+        List<EstablishmentView> establishments = defaultPollService.listOrderedEstablishmentsFiltered(pollId,false,establishmentName);
+        model.addAttribute("establishments", establishments);
+        model.addAttribute("pollId",pollId);
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
+        return "poll/list";
+    }
+
+    @RequestMapping(value = "/")
     public String listAll(Model model) {
         List<Poll> polls = defaultPollService.listHistory();
         model.addAttribute("polls", polls);
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "poll/history";
     }
 
@@ -65,6 +81,7 @@ public class PollController {
         List<User> users = defaultPollService.listVotedUsers(pollId,establishmentId);
         model.addAttribute("users", users);
         model.addAttribute("poll", defaultPollService.findById(pollId));
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "poll/users";
     }
 
@@ -73,6 +90,16 @@ public class PollController {
         List<EstablishmentView> establishments = defaultPollService.listOrderedEstablishmentsVoted(pollId);
         model.addAttribute("establishments", establishments);
         model.addAttribute("poll", defaultPollService.findById(pollId));
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
+        return "poll/voted_establishments";
+    }
+
+    @RequestMapping(value = "/votedEstablishments/{id}/{establishmentName}")
+    public String votedEstablishments(@PathVariable("id") int pollId, @PathVariable("establishmentName") String establishmentName, Model model) {
+        List<EstablishmentView> establishments = defaultPollService.listOrderedEstablishmentsFiltered(pollId,true, establishmentName);
+        model.addAttribute("establishments", establishments);
+        model.addAttribute("poll", defaultPollService.findById(pollId));
+        model.addAttribute("userName",defaultSecurityService.findLoggedInUsername());
         return "poll/voted_establishments";
     }
 
@@ -81,6 +108,6 @@ public class PollController {
         Poll finishedPoll = defaultPollService.findById(pollId);
         finishedPoll.setChosenEstablishment(defaultPollService.getMostVotedEstablishment(pollId));
         defaultPollService.edit(finishedPoll);
-        return "redirect:/poll/history";
+        return "redirect:/poll/";
     }
 }

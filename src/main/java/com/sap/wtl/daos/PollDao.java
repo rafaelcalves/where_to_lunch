@@ -26,5 +26,5 @@ public interface PollDao {
 
     Poll findById(int pollId);
 
-    List listOrderedEstablishmentIds(int pollId, boolean justVoted);
+    List listOrderedEstablishmentIds(int pollId, boolean justVoted, String searchLike);
 }

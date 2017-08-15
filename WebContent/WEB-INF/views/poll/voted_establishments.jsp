@@ -1,28 +1,36 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Poll List</title>
-    </head>
-    <body>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" type="text/css">
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<t:template>
+    <jsp:attribute name="header">
         <link rel="stylesheet" href="/resources/css/list.css">
         <link rel="stylesheet" href="/resources/css/theme.css">
+    </jsp:attribute>
 
+    <jsp:attribute name="title">
+        Vote List
+    </jsp:attribute>
+
+    <jsp:attribute name="footer">
+        <script src="/resources/js/jquery.quicksearch.js"></script>
+        <script src="/resources/js/list_search.js"></script>
+    </jsp:attribute>
+
+    <jsp:body>
         <div class="title">Poll List</div>
         <hr/>
         <div class="col-md-2 col-xs-0"></div>
         <div class="col-md-8 col-xs-8 containerTable establishments">
-            <div class="search">Search: <input id="search"></div>
-            <div class="row tableBody">
+            <div class="searchDiv">
+                <input placeholder="Search...">
+                <img class="search" src="/resources/img/search.png">
+                <img class="clear" src="/resources/img/clear.png">
+            </div>
+            <div class="row tableBody" pollId="${poll.id}">
 
             <c:forEach var="establishment" items="${establishments}">
                 <div class="row tableLine" id="${establishment.id}">
@@ -68,15 +76,6 @@
 
             </div>
         </div>
-        <div class="col-md-2 col-xs-0">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="/resources/js/jquery.quicksearch.js"></script>
-        <script>
-            $(function () {
-                $(".search #search").quicksearch(".tableBody .tableLine");
-            });
-        </script>
-    </body>
-</html>
+        <div class="col-md-2 col-xs-0"></div>
+    </jsp:body>
+</t:template>

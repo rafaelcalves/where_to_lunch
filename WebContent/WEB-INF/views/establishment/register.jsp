@@ -1,6 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -8,9 +10,15 @@
     <jsp:attribute name="header">
         <link rel="stylesheet" href="/resources/css/form.css">
     </jsp:attribute>
+
     <jsp:attribute name="title">
         Establishment Form
     </jsp:attribute>
+
+    <jsp:attribute name="footer">
+        <script src="/resources/js/establishment_register.js"></script>
+    </jsp:attribute>
+
     <jsp:body>
 
         <div class="title">Establishment Form</div>
@@ -35,7 +43,4 @@
         </form:form>
         <div class="col-md-2 col-xs-0"></div>
     </jsp:body>
-    <jsp:attribute name="footer">
-        <script src="/resources/js/establishment_register.js"></script>
-    </jsp:attribute>
 </t:template>

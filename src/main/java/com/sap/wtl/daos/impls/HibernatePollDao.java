@@ -57,14 +57,16 @@ public class HibernatePollDao extends HibernateDaoSupport implements PollDao{
     }
 
     @Override
-    public List listOrderedEstablishmentIds(int pollId, boolean justVoted) {
+    public List listOrderedEstablishmentIds(int pollId, boolean justVoted, String searchLike) {
 
         String joinType = justVoted ? "inner" : "left";
+        String whereLike = searchLike != "" ? "where upper(a.name) like upper('%"+ searchLike +"%') " : "";
         String queryString = "select a.id , count(b.establishment.id) "+
                             "from com.sap.wtl.models.Establishment as a "+
                             joinType + " join com.sap.wtl.models.Vote b "+
                                 "on b.establishment.id = a.id "+
                                 "and b.poll.id = :pPollId "+
+                                whereLike +
                             "group by a.id, a.name "+
                             "order by count(b.establishment.id) desc, a.name, a.id";
         try{

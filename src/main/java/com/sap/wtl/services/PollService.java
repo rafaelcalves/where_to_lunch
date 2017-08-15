@@ -28,4 +28,6 @@ public interface PollService {
     List<EstablishmentView> listOrderedEstablishmentsAll(int pollId);
 
     List<EstablishmentView> listOrderedEstablishmentsVoted(int pollId);
+
+    List<EstablishmentView> listOrderedEstablishmentsFiltered(int pollId, boolean returnVoted, String searchLike);
 }

@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -14,11 +15,11 @@
     </jsp:attribute>
 
     <jsp:body>
-         <div class="container">
-
+        <div class="title">Login</div>
+        <hr/>
+        <div class="col-md-2 col-xs-0"></div>
+        <div class="col-md-8 col-xs-12">
              <form method="POST" action="/user/login" class="form-signin" modelAttribute="user">
-                 <h2 class="form-heading">Log in</h2>
-
                  <div class="${error != null ? 'has-error' : ''}">
                      <span>${message}</span>
                      <input name="email" type="text" placeholder="Email"
@@ -26,12 +27,11 @@
                      <input name="password" type="password" placeholder="Password"/>
                      <span>${error}</span>
                      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
+                     <br>
                      <button type="submit">Log In</button>
                  </div>
-
              </form>
-
-         </div>
+        </div>
+        <div class="col-md-2 col-xs-0"></div>
     </jsp:body>
 </t:template>
