@@ -16,7 +16,6 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        <script src="/resources/js/jquery.quicksearch.js"></script>
         <script src="/resources/js/list_search.js"></script>
     </jsp:attribute>
 
@@ -27,8 +26,6 @@
         <div class="col-md-8 col-xs-8 containerTable establishments">
             <div class="searchDiv">
                 <input placeholder="Search...">
-                <img class="search" src="/resources/img/search.png">
-                <img class="clear" src="/resources/img/clear.png">
             </div>
             <div class="row tableBody" pollId="${pollId}">
 

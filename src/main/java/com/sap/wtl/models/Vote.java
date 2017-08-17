@@ -13,13 +13,13 @@ public class Vote {
     @Column(name = "ID")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Poll poll;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Establishment establishment;
 
     @Column(name = "last_edit")

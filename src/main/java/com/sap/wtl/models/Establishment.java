@@ -1,5 +1,6 @@
 package com.sap.wtl.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -34,10 +35,12 @@ public class Establishment {
     private String image;
 
     @OneToMany(
+            fetch = FetchType.EAGER,
             mappedBy = "establishment",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    @JsonIgnore
     private List<Vote> vote;
 
     public Establishment(int id,String name, String address, double averagePrice, boolean aleloAccepted, String image, List<Vote> vote) {
