@@ -19,7 +19,7 @@
         <script src="/resources/js/jquery.quicksearch.js"></script>
         <script>
             $(function () {
-                $(".search #search").quicksearch(".tableBody .tableLine");
+                $(".searchDiv input").quicksearch(".tableBody .tableLine");
             });
         </script>
     </jsp:attribute>
@@ -29,7 +29,7 @@
         <hr/>
         <div class="col-md-2 col-xs-0"></div>
         <div class="col-md-8 col-xs-8 containerTable establishments">
-            <div class="search"><input id="search" placeholder="Search..."></div>
+            <div class="searchDiv"><input placeholder="Search..."></div>
             <div class="row tableBody">
 
             <c:forEach var="establishment" items="${establishments}">

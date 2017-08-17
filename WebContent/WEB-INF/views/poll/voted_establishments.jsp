@@ -16,8 +16,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        <script src="/resources/js/jquery.quicksearch.js"></script>
-        <script src="/resources/js/list_search.js"></script>
+        <script src="/resources/js/voted_search.js"></script>
     </jsp:attribute>
 
     <jsp:body>
